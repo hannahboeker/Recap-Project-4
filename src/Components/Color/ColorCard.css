@@ -1,0 +1,13 @@
+* {
+  list-style: none;
+}
+
+.ColorCard {
+  padding: 2%;
+  color: #ffffff;
+}
+
+.hex {
+  background-color: black;
+  width: fit-content;
+}
