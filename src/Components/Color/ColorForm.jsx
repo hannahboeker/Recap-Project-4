@@ -10,18 +10,16 @@ export default function ColorForm({ onSubmit }) {
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
 
-    console.log(data);
-
     onSubmit(data);
   }
 
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <div className="colorForm_fields">
+        <div className="colorForm__fields">
           {/* {Role-Input} */}
           <div className="colorForm_field">
-            <label htmlFor="colorForm_input_role" className="colorForm_lable">
+            <label htmlFor="colorForm__input_role" className="colorForm__lable">
               ROLE
             </label>
             {/* name den ich hier vergebe wird der kex vom objekt, 
@@ -29,38 +27,31 @@ export default function ColorForm({ onSubmit }) {
             <input
               type="text"
               name="role"
-              id="colorForm_input_role"
+              id="colorForm__input_role"
               defaultValue="primary main"
             />
           </div>
 
           {/* {Hex-Input} */}
           <div className="colorForm_field">
-            <label htmlFor="hex" className="colorForm_hex">
+            <label htmlFor="hex" className="colorForm__hex">
               HEX
             </label>
-            <ColorInput
-              id={"hex"}
-              defaultValue={"#000000"}
-              hex={"#000000"}
-              contrastText={"#FFFFFF"}
-            ></ColorInput>
+            <ColorInput id={"hex"} defaultValue={"#000000"}></ColorInput>
           </div>
 
           {/* {contrastText-Input} */}
           <div className="colorForm_field">
-            <label htmlFor="contrastText" className="colorForm_contrastText">
+            <label htmlFor="contrastText" className="colorForm__contrastText">
               CONTRAST TEXT
             </label>
             <ColorInput
               id={"contrastText"}
               defaultValue={"#000000"}
-              hex={"#000000"}
-              contrastText={"#FFFFFF"}
             ></ColorInput>
           </div>
         </div>
-        <button className="colorForm_button" type="submit">
+        <button className="colorForm__button" type="submit">
           JETZT WIRDS BUNT
         </button>
       </form>

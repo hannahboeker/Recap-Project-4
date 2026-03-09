@@ -7,7 +7,6 @@ import { uid } from "uid";
 
 export default function App() {
   const [colorCards, setColorCard] = useState(initialColors);
-  console.log(colorCards);
 
   //Funktion die Änderung (neue Card) hinzufügt
   function onSubmit(newColorCard) {
