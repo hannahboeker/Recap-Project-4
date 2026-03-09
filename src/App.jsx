@@ -1,21 +1,26 @@
+import ColorCards from "./Components/Color/ColorCards";
+import ColorForm from "./Components/Color/ColorForm";
 import { initialColors } from "./lib/colors";
-import Color from "./Components/Color/Color";
-import ColorCard from "./Components/Color/ColorCard";
 import "./App.css";
+import { useState } from "react";
+import { uid } from "uid";
 
-function App() {
+export default function App() {
+  const [colorCards, setColorCard] = useState(initialColors);
+  console.log(colorCards);
+
+  //Funktion die Änderung (neue Card) hinzufügt
+  function onSubmit(newColorCard) {
+    newColorCard.id = uid();
+    setColorCard([newColorCard, ...colorCards]);
+  }
+
   return (
     <>
       <h1>Theme Creator</h1>
-      <ColorCard
 
-      //Für eine Karte___________________________
-      // role={initialColors[0].role}
-      // hex={initialColors[0].hex}
-      // contrastText={initialColors[0].hex}
-      ></ColorCard>
+      <ColorForm onSubmit={onSubmit}></ColorForm>
+      <ColorCards colorCards={colorCards}></ColorCards>
     </>
   );
 }
-
-export default App;
