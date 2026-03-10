@@ -11,7 +11,3 @@
   width: fit-content;
   color: white;
 }
-
-.button__delete:focus {
-  display: none;
-}
