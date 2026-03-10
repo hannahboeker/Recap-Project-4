@@ -14,12 +14,22 @@ export default function App() {
     setColorCard([newColorCard, ...colorCards]);
   }
 
+  // Funktion die Karte löscht/ card.id
+  function onDelete(idToDelete) {
+    const notDeletedCards = colorCards.filter(
+      (ColorCards) => ColorCards.id !== idToDelete,
+
+    );
+
+    setColorCard(notDeletedCards);
+  }
+
   return (
     <>
       <h1>Theme Creator</h1>
 
       <ColorForm onSubmit={onSubmit}></ColorForm>
-      <ColorCards colorCards={colorCards}></ColorCards>
+      <ColorCards colorCards={colorCards} onDelete={onDelete}></ColorCards>
     </>
   );
 }
