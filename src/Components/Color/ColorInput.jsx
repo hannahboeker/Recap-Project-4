@@ -4,9 +4,8 @@ import { useState } from "react";
 //  so das beide synchronisiert sind egal welcher geändert wird.
 
 export default function ColorInput({ id, defaultValue }) {
-
   // 1. UseState für newcolor, damit veränderte farbe gespeichert wird. Initialwert = default wert.
- const [newColor, setNewColor] = useState(defaultValue);
+  const [newColor, setNewColor] = useState(defaultValue);
 
   // 2. Funktion die bei event onChange ansgeführt wird // Browser übergibt funktion immer als Argument. Event in Klammern hier al Platzhalter Parameter.
   function synchronizeColorInput(event) {
@@ -20,7 +19,6 @@ export default function ColorInput({ id, defaultValue }) {
         name={id}
         id={id}
         value={newColor}
-
         // 3.onchange event für beide inputs. Bei Veränderung, führe diese Funktion aus.
         onChange={synchronizeColorInput}
       />
