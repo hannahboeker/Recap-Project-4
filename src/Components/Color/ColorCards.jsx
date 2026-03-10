@@ -1,8 +1,15 @@
 import { useState } from "react";
 import "./ColorCard.css";
+import ColorForm from "./ColorForm";
 
-export default function ColorCards({ colorCards, onDelete }) {
+export default function ColorCards({ colorCards, onDelete, onInnerSubmit }) {
   const [confirmationId, setConfirmationId] = useState(null);
+  const [editButtonState, setEditButtonState] = useState(null);
+
+  function handleInnerFormSubmit(updatedCard) {
+    onInnerSubmit(updatedCard);
+    setEditButtonState(null);
+  }
 
   // hier wird jetzt mit map für jedes Element aus dem Array ein Listen-Element erstellt.
   // ich gebe map () eine variable, die dann durch map mit jedem element des arrays nacheinander gefüllt wird
@@ -21,9 +28,7 @@ export default function ColorCards({ colorCards, onDelete }) {
             <p style={{ color: card.contrastText }}>
               contrast: {card.contrastText}
             </p>
-            {/* der braucht ein OnClick bei dem dann eine funktion ausgeführt wird damit die 
-            sicherheitsfrage mit neuem Cancel buttom gestellöt wird. Vielleicht if/else */}
-
+            {/* DELETE BUTTON____________________________________________________________________________________________________________________________________________________________________________________________________ */}
             {/* Wenn ich hier drauf klicke wird durch OnClick und State die confirmation Id zur card.id und dann ist bedigung weiter unten true und die Button werden angezeigt. 
             Dieser Button wird dann nicht mehr angeziegt weil bedigung flasch */}
             {confirmationId !== card.id && (
@@ -53,9 +58,27 @@ export default function ColorCards({ colorCards, onDelete }) {
                 </button>
               </>
             )}
+            {/* EDIT BUTTON____________________________________________________________________________________________________________________________________________________________________________________________________ */}
+            {/* 1. handleEdit funktion. Wenn Button geklickt wird handleEdit ausgeführt. HandleEdit erstellt ein neues Formular */}
+            {editButtonState !== card.id && (
+              <>
+                <button
+                  type="button"
+                  onClick={() => setEditButtonState(card.id)}
+                >
+                  EDIT
+                </button>
+              </>
+            )}
+            {editButtonState === card.id && (
+              <ColorForm
+                onSubmit={handleInnerFormSubmit}
+                card={card}
+              ></ColorForm>
+            )}
           </li>
         ))}
-
+        {/* KEINE COLOR CARD ÜBER MESSAGE */}
         {colorCards.length === 0 && (
           <>
             <p>Gar nichts los hier. Ertsell mal ne Karte!</p>

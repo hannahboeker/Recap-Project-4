@@ -18,18 +18,29 @@ export default function App() {
   function onDelete(idToDelete) {
     const notDeletedCards = colorCards.filter(
       (ColorCards) => ColorCards.id !== idToDelete,
-
     );
-
     setColorCard(notDeletedCards);
+  }
+
+  //Funktion für Inneres Formular
+  function onInnerSubmit(updatedCard) {
+    setColorCard(
+      colorCards.map((card) =>
+        card.id === updatedCard.id ? updatedCard : card,
+      ),
+    );
   }
 
   return (
     <>
       <h1>Theme Creator</h1>
 
-      <ColorForm onSubmit={onSubmit}></ColorForm>
-      <ColorCards colorCards={colorCards} onDelete={onDelete}></ColorCards>
+      <ColorForm onSubmit={onSubmit} />
+      <ColorCards
+        colorCards={colorCards}
+        onDelete={onDelete}
+        onInnerSubmit={onInnerSubmit}
+      />
     </>
   );
 }

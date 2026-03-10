@@ -1,16 +1,23 @@
+import { useState } from "react";
 import "./ColorForm.css";
 import ColorInput from "./ColorInput";
 
 //Hier wird das Formular erstellt, die Daten ausgelesen und die onSubmit Funktion aus dem App.jsx aufgerufen mit den ausgelesenen Daten
 
-export default function ColorForm({ onSubmit }) {
+export default function ColorForm({ card, onSubmit }) {
+  const [hex, setHex] = useState(card?.hex || "#000000");
+  const [role, setRole] = useState(card?.role || "");
+  const [contrastText, setContrastText] = useState(
+    card?.contrastText || "#000000",
+  );
+
   function handleSubmit(event) {
     event.preventDefault();
 
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData);
+    // const formData = new FormData(event.target);
+    // const data = Object.fromEntries(formData);
 
-    onSubmit(data);
+    onSubmit({ ...card, hex, role, contrastText });
   }
 
   return (
@@ -28,7 +35,8 @@ export default function ColorForm({ onSubmit }) {
               type="text"
               name="role"
               id="colorForm__input_role"
-              defaultValue="primary main"
+              value={role}
+              onChange={(event) => setRole(event.target.value)}
             />
           </div>
 
@@ -37,7 +45,11 @@ export default function ColorForm({ onSubmit }) {
             <label htmlFor="hex" className="colorForm__hex">
               HEX
             </label>
-            <ColorInput id={"hex"} defaultValue={"#000000"}></ColorInput>
+            <ColorInput
+              id={"hex"}
+              value={hex}
+              onChange={(event) => setHex(event.target.value)}
+            ></ColorInput>
           </div>
 
           {/* {contrastText-Input} */}
@@ -47,7 +59,8 @@ export default function ColorForm({ onSubmit }) {
             </label>
             <ColorInput
               id={"contrastText"}
-              defaultValue={"#000000"}
+              value={contrastText}
+              onChange={(event) => setContrastText(event.target.value)}
             ></ColorInput>
           </div>
         </div>
