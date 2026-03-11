@@ -1,13 +1,51 @@
+@font-face {
+  font-family: "bianzhidai_noBG-Cloud.woff";
+  src: url("src/fonts/bianzhidai_noBG-Cloud.woff");
+}
+
+@font-face {
+  font-family: "bianzhidai_noBG-Base.woff";
+  src: url("src/fonts/bianzhidai_noBG-Base.woff");
+}
+
 * {
   list-style: none;
 }
 
+.ColorCards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .ColorCard {
+  width: 300px;
   padding: 2%;
+  margin: 1%;
+  border-radius: 20px;
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 5%;
+  margin: 1%;
+}
+
+.button__delete {
+  font-family: "bianzhidai_noBG-Base.woff";
+}
+
+.button__edit {
+  font-family: "bianzhidai_noBG-Base.woff";
+}
+
+.button__cancel {
+  font-family: "bianzhidai_noBG-Base.woff";
 }
 
 .hex {
-  background-color: black;
+  font-family: "bianzhidai_noBG-Cloud.woff";
+  font-size: 2em;
   width: fit-content;
-  color: white;
 }

@@ -4,7 +4,7 @@ import ColorInput from "./ColorInput";
 
 //Hier wird das Formular erstellt, die Daten ausgelesen und die onSubmit Funktion aus dem App.jsx aufgerufen mit den ausgelesenen Daten
 
-export default function ColorForm({ card, onSubmit }) {
+export default function ColorForm({ card, onSubmit, variant }) {
   const [hex, setHex] = useState(card?.hex || "#000000");
   const [role, setRole] = useState(card?.role || "");
   const [contrastText, setContrastText] = useState(
@@ -19,11 +19,20 @@ export default function ColorForm({ card, onSubmit }) {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <div className="colorForm__fields">
+      <form
+        //template Literal für Klassen / in geschfeiften klammern wird if ausgeführt und je nach ergebnis ander Endung an String eingefügt
+        //wenn ich der Form bei App.js auch variante="card" mitgeben würde, würde auch die Klasse kriegen
+        className={`colorForm ${variant === "card" ? "colorForm--card" : ""}`}
+        onSubmit={handleSubmit}
+      >
+        <div
+          className={`colorForm__fields ${
+            variant === "card" ? "colorForm__fields--card" : ""
+          }`}
+        >
           {/* {Role-Input} */}
-          <div className="colorForm_field">
-            <label htmlFor="colorForm__input_role" className="colorForm__lable">
+          <div className="colorForm__field">
+            <label htmlFor="colorForm__input_role" className="colorForm__role">
               ROLE
             </label>
             {/* name den ich hier vergebe wird der kex vom objekt, 
@@ -38,7 +47,7 @@ export default function ColorForm({ card, onSubmit }) {
           </div>
 
           {/* {Hex-Input} */}
-          <div className="colorForm_field">
+          <div className="colorForm__field">
             <label htmlFor="hex" className="colorForm__hex">
               HEX
             </label>
@@ -50,7 +59,7 @@ export default function ColorForm({ card, onSubmit }) {
           </div>
 
           {/* {contrastText-Input} */}
-          <div className="colorForm_field">
+          <div className="colorForm__field">
             <label htmlFor="contrastText" className="colorForm__contrastText">
               CONTRAST TEXT
             </label>
