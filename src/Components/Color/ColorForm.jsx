@@ -14,9 +14,6 @@ export default function ColorForm({ card, onSubmit }) {
   function handleSubmit(event) {
     event.preventDefault();
 
-    // const formData = new FormData(event.target);
-    // const data = Object.fromEntries(formData);
-
     onSubmit({ ...card, hex, role, contrastText });
   }
 
