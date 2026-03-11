@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./ColorCard.css";
+import "./ColorCards.css";
 import ColorForm from "./ColorForm";
 
 export default function ColorCards({ colorCards, onDelete, onInnerSubmit }) {
@@ -28,9 +28,10 @@ export default function ColorCards({ colorCards, onDelete, onInnerSubmit }) {
             <p style={{ color: card.contrastText }}>
               contrast: {card.contrastText}
             </p>
+
             {/* DELETE BUTTON____________________________________________________________________________________________________________________________________________________________________________________________________ */}
             {/* Wenn ich hier drauf klicke wird durch OnClick und State die confirmation Id zur card.id und dann ist bedigung weiter unten true und die Button werden angezeigt. 
-            Dieser Button wird dann nicht mehr angeziegt weil bedigung flasch */}
+            Dieser Button wird dann nicht mehr angeziegt weil bedigung falsch */}
             {confirmationId !== card.id && (
               <>
                 <button
@@ -45,7 +46,7 @@ export default function ColorCards({ colorCards, onDelete, onInnerSubmit }) {
             {/* kann ich react einfach mit {...javascript...} hinzufügen */}
             {confirmationId == card.id && (
               <>
-                <p>Really delete?</p>
+                <p style={{ color: card.contrastText }}>Really delete?</p>
                 {/* bei cancel wird id auf null gesetzt, also wir nix gelöscht */}
                 <button type="button" onClick={() => setConfirmationId(null)}>
                   CANCEL
@@ -59,7 +60,7 @@ export default function ColorCards({ colorCards, onDelete, onInnerSubmit }) {
               </>
             )}
             {/* EDIT BUTTON____________________________________________________________________________________________________________________________________________________________________________________________________ */}
-            {/* 1. handleEdit funktion. Wenn Button geklickt wird handleEdit ausgeführt. HandleEdit erstellt ein neues Formular */}
+            {/* 1. handleInnerFormSubmit funktion. Wenn Button geklickt wird handleEdit ausgeführt. HandleEdit erstellt ein neues Formular */}
             {editButtonState !== card.id && (
               <>
                 <button
