@@ -34,7 +34,7 @@ export default function App() {
 
   return (
     <>
-      <h1>Theme Creator</h1>
+      <h1>Lets Match</h1>
 
       <ColorForm onSubmit={onSubmit} />
       <ColorCards

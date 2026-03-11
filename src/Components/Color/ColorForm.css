@@ -1,9 +1,80 @@
-.colorForm__fields {
-  padding: 1%;
-  margin: 2%;
+@font-face {
+  font-family: "bianzhidai_noBG-Base.woff";
+  src: url("src/fonts/bianzhidai_noBG-Base.woff");
 }
 
+.colorForm__fields {
+  font-family: "bianzhidai_noBG-Base.woff";
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+input {
+  background-color: yellow;
+  appearance: none;
+  border: none;
+  outline: none;
+}
+.colorForm__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.colorForm__field:hover {
+  background-color: black;
+  color: yellow;
+}
+.colorForm__role {
+  margin-top: 1px;
+}
+
+.colorForm__hex {
+  margin-top: 1px;
+}
+
+.colorForm__contrastText {
+  margin-top: 1px;
+}
 .colorForm__button {
-  margin: 2%;
-  margin-bottom: 2%;
+  font-family: "bianzhidai_noBG-Base.woff";
+  font-size: 20px;
+  border: none;
+  display: block;
+  margin: 50px auto;
+  margin-bottom: 50px;
+  background-color: yellow;
+  color: rgb(0, 0, 0);
+  border-radius: 30px;
+  padding: 1%;
+}
+
+.colorForm__button:hover {
+  background-color: rgb(0, 0, 0);
+  color: yellow;
+}
+
+.colorForm--card {
+  width: 100%; /* volle Breite der Card */
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+
+.colorForm__fields--card {
+  display: flex;
+  flex-direction: column; /* Inputs untereinander */
+  gap: 8px;
+}
+
+.colorForm__fields--card {
+  display: flex;
+  flex-direction: column; /* Inputs untereinander */
+  gap: 8px;
+}
+
+.colorForm--card .colorForm__field input,
+.colorForm--card .colorForm__field ColorInput {
+  width: 100%;
+  box-sizing: border-box;
 }
