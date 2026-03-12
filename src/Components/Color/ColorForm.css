@@ -1,10 +1,5 @@
-@font-face {
-  font-family: "bianzhidai_noBG-Base.woff";
-  src: url("../../fonts/bianzhidai_noBG-Base.woff");
-}
-
 .colorForm__fields {
-  font-family: "bianzhidai_noBG-Base.woff";
+  font-family: "bianzhidai_noBG-Base";
   display: flex;
   justify-content: space-around;
   gap: 10px;
@@ -38,7 +33,7 @@ input {
   margin-top: 1px;
 }
 .colorForm__button {
-  font-family: "bianzhidai_noBG-Base.woff";
+  font-family: "bianzhidai_noBG-Base";
   font-size: 20px;
   border: none;
   display: block;

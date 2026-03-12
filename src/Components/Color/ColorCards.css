@@ -1,13 +1,3 @@
-@font-face {
-  font-family: "bianzhidai_noBG-Cloud.woff";
-  src: url("../../bianzhidai_noBG-Cloud.woff");
-}
-
-@font-face {
-  font-family: "bianzhidai_noBG-Base.woff";
-  src: url("../../bianzhidai_noBG-Base.woff");
-}
-
 * {
   list-style: none;
 }
@@ -33,19 +23,19 @@ button {
 }
 
 .button__delete {
-  font-family: "bianzhidai_noBG-Base.woff";
+  font-family: "bianzhidai_noBG-Base";
 }
 
 .button__edit {
-  font-family: "bianzhidai_noBG-Base.woff";
+  font-family: "bianzhidai_noBG-Base";
 }
 
 .button__cancel {
-  font-family: "bianzhidai_noBG-Base.woff";
+  font-family: "bianzhidai_noBG-Base";
 }
 
 .hex {
-  font-family: "bianzhidai_noBG-Cloud.woff";
+  font-family: "bianzhidai_noBG-Cloud";
   font-size: 2em;
   width: fit-content;
 }
